@@ -1,0 +1,28 @@
+Last Index of 1 or any char
+--------------------------------------------------------------------------------------
+Question link - https://practice.geeksforgeeks.org/problems/last-index-of-1/0
+
+--------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+int lastindex(string str,char x){
+    for(int i=str.length()-1;i>=0;i--){
+        if(str[i]==x){
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    int t;
+    cin>>t;
+    char x='1';
+    while(t--){
+        string str;
+        cin>>str;
+        cout<<lastindex(str,x)<<endl;
+    }
+    return 0;
+}
