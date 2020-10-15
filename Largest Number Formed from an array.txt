@@ -1,0 +1,44 @@
+Largest Number formed from an Array
+-----------------------------------------------------------------------------------
+Question Link - https://leetcode.com/problems/largest-number/submissions/
+
+-----------------------------------------------------------------------------------
+Solution -
+
+class Solution {
+public:
+    bool static comparator(string a,string b){
+        string odr1 = a+b;
+        string odr2 = b+a;
+        
+        int i=0;
+        while(odr1[i] && odr2[i])
+        {
+            if(odr1[i]>odr2[i])
+                return true;
+            else if(odr1[i]<odr2[i])
+                return false;
+            ++i;
+        }
+
+        return false;
+        
+    }
+    string largestNumber(vector<int>& nums) {
+        vector<string> s;
+        string temp;
+        for(int i=0;i<nums.size();i++){
+            temp=to_string(nums[i]);
+            s.push_back(temp);
+        }
+        sort(s.begin(),s.end(),comparator);
+        
+        if(s[0]=="0")
+            return "0";
+        string result;
+        for(int i=0;i<s.size();i++){
+            result+=s[i];
+        }
+        return result;
+    }
+};
